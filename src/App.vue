@@ -1,27 +1,26 @@
 <template>
   <div>
+    
     <Topo />
-    <ConteudoComponent />
+    <Conteudo />
   </div>
 </template>
 
 <script>
 import ConteudoComponent from './components/layouts/ConteudoComponent.vue'
-import Topo from './components/layouts/TopoComponent.vue'
+import TopoComponent from './components/layouts/TopoComponent.vue'
 
 
 
 export default {
   name: 'App',
   components: {
-    ConteudoComponent,
-    Topo,
+    Conteudo: ConteudoComponent,
+    Topo: TopoComponent
   }
 }
 </script>
 
 <style>
-#app {
-  
-}
+
 </style>
