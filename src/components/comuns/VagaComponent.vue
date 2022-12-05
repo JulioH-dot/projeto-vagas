@@ -17,7 +17,37 @@
 
 export default {
     name: 'VagaComponent',
-    props: ['titulo', 'descricao','salario', 'modalidade', 'tipo', 'publicacao']
+    props: {
+        titulo: {
+            type: String,
+            required: true
+        }, 
+        descricao:{
+            type: String,
+            default(){
+                return '*'.repeat(5)
+            }
+        },
+        salario: {
+            type: [Number, String],
+            required: true
+        },  //tipando as props
+        modalidade: {
+            type: String,
+            default: "À combinar"
+        },
+        tipo: {
+            type: String,
+            required: true,
+        },
+        publicacao: {
+            type: String,
+            required: true,
+        }
+    },
+    created(){
+        console.log('salario', typeof this.salario)
+    }
 }
 
 </script>

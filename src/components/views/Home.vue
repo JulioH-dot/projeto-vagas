@@ -5,17 +5,9 @@
                 <PesquisarVaga/>
             </div>
         </div>
-        <div class="row mt-5" v-for="({titulo, descricao,salario, modalidade,tipo, publicacao}, index) in vagas" :key="index">
+        <div class="row mt-5" v-for="(vaga, index) in vagas" :key="index">
             <div class="col">
-                
-               <Vaga 
-                    :titulo="titulo"
-                    :descricao="descricao"
-                    :salario="salario"
-                    :modalidade="modalidade"
-                    :tipo="tipo"
-                    :publicacao="publicacao"
-                /> 
+               <Vaga v-bind="vaga"/> 
             </div>
         </div>
         <div class="row mt-5">
@@ -97,7 +89,7 @@ export default {
         }
     }, 
     created(){
-        setInterval(this.getUsuariosOnline, 10000)
+        setInterval(this.getUsuariosOnline, 5000)
     }
     
 }
