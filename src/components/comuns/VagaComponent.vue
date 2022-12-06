@@ -5,7 +5,7 @@
             <p>{{descricao}}</p>
         </div>
         <div class="footer">
-            <small class="text-muted"> Salário: R$ {{salario}} | Modalidade: {{modalidade}} | Tipo: {{tipo}} | Data: {{publicacao}}</small>
+            <small class="text-muted"> Salário: R$ {{salario}} | Modalidade: {{getModalidade}} | Tipo: {{getTipo}} | Data: {{getPublicacao}}</small>
         </div>
     </div>
        
@@ -45,8 +45,26 @@ export default {
             required: true,
         }
     },
-    created(){
-        console.log('salario', typeof this.salario)
+
+    computed: {
+        getModalidade(){
+
+            switch(this.modalidade){
+                case '1': return 'Home Office'
+                case '2': return 'Presencial'
+            }
+        },
+        getTipo(){
+            switch(this.tipo){
+                case '1': return 'CLT'
+                case '2': return 'PJ'
+            }
+        },
+        getPublicacao(){
+            let dataPublicacao = new Date(this.publicacao);
+            //return dataPublicacao.toLocaleString('pt-BR')
+            return dataPublicacao.toLocaleDateString('pt-BR')
+        }
     }
 }
 

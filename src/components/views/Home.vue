@@ -95,7 +95,8 @@ export default {
 
     activated(){
         this.vagas = JSON.parse(localStorage.getItem('vagas'))
-    }
+    },
+    
     
 }
 

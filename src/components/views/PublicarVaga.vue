@@ -76,6 +76,10 @@ export default {
             if(!vagas){
                 vagas = []
             };
+            let tempoDecorrido = Date.now();
+            let dataAtual = new Date(tempoDecorrido);
+            let dataPublicacao = dataAtual.toISOString();
+
 
             let vagaPadrao = {
                titulo: this.titulo,
@@ -83,6 +87,7 @@ export default {
                salario: this.salario,
                modalidade: this.modalidade,
                tipo: this.tipo,
+               publicacao: dataPublicacao,  //data e hora no time zone UTC (hora universal)
             };
             
             
