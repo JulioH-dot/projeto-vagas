@@ -42,7 +42,8 @@ export default {
     data: ()=>({
         usuariosOnline: 0,
         vagas: [
-            {
+            
+           /* {
                 titulo: 'Analista Programador PHP Pleno',
                 descricao: 'Profissional com conhecimentos em PHP, Laravel e MySQL. Necessário 3 anos de experiências. Atuará na manutenção de sistemas legados da empresa.',
                 salario: 6000,
@@ -81,7 +82,7 @@ export default {
                 modalidade: 'Presencial',
                 tipo: 'CLT',
                 publicacao: '2021-10-05'
-            }]
+            }*/]
     }),
     methods:{
         getUsuariosOnline(){
@@ -90,6 +91,10 @@ export default {
     }, 
     created(){
         setInterval(this.getUsuariosOnline, 5000)
+    },
+
+    activated(){
+        this.vagas = JSON.parse(localStorage.getItem('vagas'))
     }
     
 }

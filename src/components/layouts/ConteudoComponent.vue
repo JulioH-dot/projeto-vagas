@@ -1,6 +1,7 @@
 <template>
     <div>
-        
+        <button @click="conteudo = 'home'">Home</button>
+        <button @click="conteudo = 'publicar-vaga'">Publicar Vaga</button>
       
         <keep-alive>
             <component :is="conteudo" />
