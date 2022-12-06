@@ -1,13 +1,15 @@
 <template>
   <div>
+    <vagas-favoritas/>
     <Topo @navegar="component = $event"/>
     <Conteudo :conteudo="component" />
   </div>
 </template>
 
 <script>
-import ConteudoComponent from './components/layouts/ConteudoComponent.vue'
-import TopoComponent from './components/layouts/TopoComponent.vue'
+import VagasFavoritas from '@/components/comuns/VagasFavoritas.vue'
+import ConteudoComponent from '@/components/layouts/ConteudoComponent.vue'
+import TopoComponent from '@/components/layouts/TopoComponent.vue'
 
 
 
@@ -18,7 +20,8 @@ export default {
   }),
   components: {
     Conteudo: ConteudoComponent,
-    Topo: TopoComponent
+    Topo: TopoComponent,
+    VagasFavoritas
   },
   
 }
