@@ -47,7 +47,7 @@
             </div>
         </div>
         <div class="row mt-3">
-            {{titulo}} |{{salario}} |{{descricao}} |{{modalidade}}| {{tipo}} | |
+            
             <div class="col">
                 <button type="submit" class="btn btn-primary" @click="salvarVaga()">Cadastrar</button>
             </div>

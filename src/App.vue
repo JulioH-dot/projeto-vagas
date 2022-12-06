@@ -1,8 +1,7 @@
 <template>
   <div>
-    
-    <Topo />
-    <Conteudo />
+    <Topo @navegar="component = $event"/>
+    <Conteudo :conteudo="component" />
   </div>
 </template>
 
@@ -14,10 +13,14 @@ import TopoComponent from './components/layouts/TopoComponent.vue'
 
 export default {
   name: 'App',
+  data:() =>({
+    component: 'Home'
+  }),
   components: {
     Conteudo: ConteudoComponent,
     Topo: TopoComponent
-  }
+  },
+  
 }
 </script>
 
