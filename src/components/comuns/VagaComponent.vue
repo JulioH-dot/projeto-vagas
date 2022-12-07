@@ -86,9 +86,22 @@ export default {
         }
     },
     methods: {
+        vereficaVagaFavorita(){
+            const vagasFavoritas = JSON.parse(localStorage.getItem("vagasFavoritas"));
+            if (vagasFavoritas) {
+                const a = vagasFavoritas.filter((indice) =>
+                indice.titulo.toLowerCase().includes(this.titulo.toLowerCase()));
+                if (a.length > 0) {
+                    this.favorita = true;
+                } else {
+                    this.favorita = false;
+                }
+            }
+    }
         
     },
     computed: {
+
         getModalidade(){
 
             switch(this.modalidade){
@@ -107,7 +120,13 @@ export default {
             //return dataPublicacao.toLocaleString('pt-BR')
             return dataPublicacao.toLocaleDateString('pt-BR')
         }
-    }
+    },
+    mounted() {
+        this.vereficaVagaFavorita();
+    },
+    beforeUpdate() {
+        this.vereficaVagaFavorita();
+    },
 }
 
 </script>

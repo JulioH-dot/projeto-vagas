@@ -42,6 +42,7 @@ export default{
         list: []
     }),
     mounted(){
+        // verificar se vagasFavoritas já existe em localStorage
         this.emitter.on('favoritarVaga', (dadosVaga)=>{
             console.log('componente Vagas favoritas: ', dadosVaga)
             this.list.push(dadosVaga)
