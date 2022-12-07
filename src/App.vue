@@ -3,7 +3,14 @@
     
     <vagas-favoritas/>
     <topo @navegar="component = $event"/>
-    <alert v-if="exibirAlert" />
+    <alert v-if="exibirAlert" :tipo="alert.tipo">
+      <template v-slot:titulo>
+        <h5>{{alert.titulo}}</h5>
+      </template>
+      <template v-slot:descricao>
+        <p>{{alert.descricao}}</p>
+      </template>
+    </alert> 
     <conteudo :conteudo="component" />
   </div>
 </template>
@@ -22,6 +29,11 @@ export default {
   data:() =>({
     component: 'Home',
     exibirAlert: false,
+    alert: {
+      titulo: '',
+      descricao: '',
+      tipo: '',
+    }
   }),
   components: {
     Alert,
@@ -31,10 +43,11 @@ export default {
      
   },
   mounted(){
-    this.emitter.on('alert', ()=>{
+    this.emitter.on('alert', (a)=>{
+      this.alert = a
       this.exibirAlert = true;
       setTimeout(()=> this.exibirAlert = false, 4000)
-      console.log('Apresentar a mensagem de alerta customizada')
+      
     })
   }
   

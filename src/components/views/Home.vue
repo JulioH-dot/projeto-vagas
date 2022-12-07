@@ -34,7 +34,7 @@ import Vaga from '@/components/comuns/VagaComponent.vue';
 
 export default {
     name: 'Home',
-    components:{
+    components:{ 
         Indicador,
         PesquisarVaga,
         Vaga
@@ -96,6 +96,19 @@ export default {
     activated(){
         this.vagas = JSON.parse(localStorage.getItem('vagas'))
     },
+    mounted(){
+        this.emitter.on('filtrarVagas', termoDePesquisa=>{
+
+            const vagas1 = JSON.parse(localStorage.getItem('vagas'))
+            
+
+            this.vagas = vagas1.filter( index => index.titulo.toLowerCase().includes(termoDePesquisa.titulo.toLowerCase()))
+            this.vagas = vagas1.filter( index => index.descricao.toLowerCase().includes(termoDePesquisa.titulo.toLowerCase()))
+            
+
+            console.log(this.vagas)
+        })
+    }
     
     
 }

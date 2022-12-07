@@ -42,13 +42,17 @@ export default {
                 this.emitter.emit('favoritarVaga', {
                     titulo: this.titulo, 
                     salario: this.salario, 
-                    descricao: this.descricao
+                    descricao: this.descricao,
+                    tipo: this.tipo,
+                    modalidade: this.modalidade 
                 })
             } else{
                 this.emitter.emit('desfavoritarVaga', {
                     titulo: this.titulo, 
                     salario: this.salario, 
-                    descricao: this.descricao
+                    descricao: this.descricao,
+                    tipo: this.tipo,
+                    modalidade: this.modalidade
                 })
             }
         }
