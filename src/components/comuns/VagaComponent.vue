@@ -8,8 +8,9 @@
                     </div>
                     <div>
                         <div class="form-check form-switch">
-                            <input type="checkbox" class="form-check-input">
-                            <label class="form-check-label"> Favoritar</label>
+                            <input type="checkbox" class="form-check-input" v-model="favorite">
+                            <label class="form-check-label"> Favoritar </label>
+                            
                         </div>
                     </div>
                 </div>
@@ -32,6 +33,26 @@
 
 export default {
     name: 'VagaComponent',
+    data:()=>({
+        favorite: false,
+    }),
+    watch:{
+        favorite(newValue){
+            if(newValue){
+                this.emitter.emit('favoritarVaga', {
+                    titulo: this.titulo, 
+                    salario: this.salario, 
+                    descricao: this.descricao
+                })
+            } else{
+                this.emitter.emit('desfavoritarVaga', {
+                    titulo: this.titulo, 
+                    salario: this.salario, 
+                    descricao: this.descricao
+                })
+            }
+        }
+    },
     props: {
         titulo: {
             type: String,
@@ -60,7 +81,9 @@ export default {
             required: true,
         }
     },
-
+    methods: {
+        
+    },
     computed: {
         getModalidade(){
 
