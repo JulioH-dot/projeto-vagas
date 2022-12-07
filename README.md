@@ -1,4 +1,7 @@
 # vagas
+ 
+<img src="./src/assets/pag_Home" alt="pagina home">
+<img src="./src/assets/pag_publicarVaga" alt="pagina publicar Vaga">
 
 ## Project setup
 ```
